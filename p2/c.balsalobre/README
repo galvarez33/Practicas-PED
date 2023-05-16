@@ -1,0 +1,22 @@
+## Ejecución
+
+Para ejecutar app1:
+```
+make app1
+```
+
+Para ejecutar app2:
+```
+make app2
+```
+
+Para ver que hace app1:
+```
+make debug1
+```
+
+Para ver qué hace app2:
+```
+make debug2
+```
+

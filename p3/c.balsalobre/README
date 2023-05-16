@@ -1,0 +1,41 @@
+## Ejecución
+
+Para ejecutar cliente app1:
+```
+make app1cli
+```
+
+Para ejecutar servidor app1:
+```
+Make app1serv
+```
+
+Para ejecutar cliente app2:
+```
+make app2cli
+```
+
+Para ejecutar servidor app2:
+```
+make app2serv
+```
+
+Para ver que hace cliente app1:
+```
+make debug1cli
+```
+
+Para ver que hace servidor app1:
+```
+make debug1serv
+```
+
+Para ver qué hace cliente app2:
+```
+make debug2cli
+```
+
+Para ver qué hace servidor app2:
+```
+make debug2serv
+```
