@@ -1,0 +1,1 @@
+cli debe preguntar al usuario por la dir del servidor, realizar conexios y hacer un minimo de 3 mensajes al serv, el cliente imprimer las salidas y termian tras el ultimo. Servidor se ejecut ade forma continua , y acepta conex de cualquier cliente, . Implementar abstraccion (clase,modulos)
