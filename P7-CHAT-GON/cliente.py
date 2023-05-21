@@ -2,6 +2,7 @@ import sys
 import socket
 import os
 import select
+import unicodedata
 
 class Cliente:
     
@@ -48,7 +49,8 @@ class Cliente:
         threading.Thread(target=self.recibir_mensajes, args=(usuario,), daemon=True).start()
 
         # Mostrar el nombre de usuario antes del bucle de envío de mensajes
-        print(f"{usuario}: ")
+        nuevo_usuario = unicodedata.normalize('NFKD',usuario).encode('ascii','ignore').decode('utf8','ignore').lower()
+        print(f"{nuevo_usuario}: ")
 
         while True:
             mensaje = input()
