@@ -17,7 +17,7 @@ class Cliente:
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.sock.connect((self.direccion, self.puerto))
 
-        self.sock.send(path.encode())
+        self.sock.send(path.encode())s
         
 
         while True:
