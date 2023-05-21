@@ -1,0 +1,59 @@
+# Proyecto de Gestión de Solicitudes
+
+Este proyecto implementa un sistema de gestión de solicitudes usando Python.
+
+## Configuración del entorno
+
+1. Crea un entorno virtual usando el comando `python3 -m venv entorno`.
+2. Activa el entorno virtual usando el comando `source entorno/bin/activate`.
+3. Instala las dependencias del proyecto usando los comandos:
+
+```
+pip install proctitle
+pip install pytest
+```
+
+## Ejecución del servidor
+
+Para ejecutar el servidor, sigue estos pasos:
+
+1. Asegúrate de tener el entorno virtual activado.
+2. Ejecuta el servidor usando el comando `python3 servidor.py`.
+
+## Ejecución del cliente
+
+Para ejecutar el cliente y realizar una solicitud, sigue estos pasos:
+
+1. Asegúrate de tener el entorno virtual activado.
+2. Ejecuta el cliente especificando el archivo de solicitud como argumento. Por ejemplo:
+    ```
+    python3 cliente.py /etc/services
+    ```
+
+    ```
+    python3 cliente.py /bin/bash
+    ```
+    ```
+    python3 cliente.py + RUTA
+    ```
+3. Si deseas realizar un correcto cierre del cliente utiliza:
+    ```
+    python3 cliente.py cerrar
+    ```
+
+
+## Ejecución de pruebas
+
+Para ejecutar las pruebas unitarias, sigue estos pasos:
+
+1. Asegúrate de tener el entorno virtual activado.
+2. Ejecuta las pruebas usando el comando `pytest`.
+
+## Makefile
+
+El proyecto incluye un archivo Makefile con comandos predefinidos para facilitar algunas tareas comunes. Puedes utilizar los siguientes comandos:
+
+- `make setup`: Configura el entorno virtual y las dependencias.
+- `make server`: Ejecuta el servidor.
+- `make client`: Ejecuta el cliente. Debes proporcionar el archivo de solicitud como argumento.
+- `make test`: Ejecuta las pruebas unitarias.
