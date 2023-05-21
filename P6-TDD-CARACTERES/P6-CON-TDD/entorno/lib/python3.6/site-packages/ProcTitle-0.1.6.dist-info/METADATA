@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: ProcTitle
+Version: 0.1.6
+Summary: Context Manager to set/reset the current process name.
+Home-page: http://pypi.python.org/pypi/ProcTitle/
+Author: Glenn Franxman
+Author-email: gfranxman@gmail.com
+License: ISC License        
+            Copyright (c) 2015, Glenn Franxman        
+            Permission to use, copy, modify, and/or distribute this software for any
+            purpose with or without fee is hereby granted, provided that the above
+            copyright notice and this permission notice appear in all copies.        
+            THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+            WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+            MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+            ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+            WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+            ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+            OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+License-File: LICENSE.txt
+Requires-Dist: setproctitle (>=1.1.10)
+
+# proctitle Dynamic Process Names
+
+Simple context manager so that tasks can be reflected in the process names of Celery workers.
+
+
+For instance:
+
+    from proctitle import *
+        with ProcTitle("intense task"):
+        do_something_intense()
+
+
+Can also be used as a function decorator:
+
+    from proctitle import *
+    import time
+
+    @ProcTitle("delay")
+    def g(n):
+        time.sleep(n)
+
+    g(10)   # during this time, the proc title is "python - delay"
+
+    @ProcTitle("sleeping", replace=True)
+    def f(n):
+        time.sleep(n)
+
+    f(10)   # during this time, the proc title is just "sleeping" 
+
+
+

@@ -5,7 +5,7 @@ import sys
 import unicodedata
 
 direccion = 'localhost'
-puerto = 5001
+puerto = 5000
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -47,6 +47,7 @@ while True:
                 socket_listo.close()
                 conexiones.remove(socket_listo)
                 usuarios.remove(nuevo_usuario)
+                print(usuarios)
                 continue
 
             print(f"Mensaje recibido: {mensaje}")

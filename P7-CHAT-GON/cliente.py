@@ -20,16 +20,19 @@ class Cliente:
             # Verificar si hay mensajes disponibles del servidor
             if self.sock in ready:
                 contenido = self.sock.recv(1024)
+                
                 if not contenido:
                     break
                 mensaje_recibido = contenido.decode()
                 print(f"{mensaje_recibido}\n")  # Imprimir el mensaje recibido con el usuario que lo envió
 
             # Verificar si hay entrada disponible desde el usuario
-            if sys.stdin in ready:
+            if sys.stdin in ready:                 
                 mensaje = sys.stdin.readline().strip()
                 if mensaje == "cerrar":
-                    return
+                   return
+                # Agregar el usuario al mensaje
+                mensaje = f"{usuario}: {mensaje}"
                 self.sock.send(mensaje.encode())
 
 
@@ -43,27 +46,16 @@ class Cliente:
             self.sock.close()
             sys.exit()
 
-        
-        # Iniciar el hilo para recibir mensajes
-        import threading
-        threading.Thread(target=self.recibir_mensajes, args=(usuario,), daemon=True).start()
-
-        # Mostrar el nombre de usuario antes del bucle de envío de mensajes
+         # Mostrar el nombre de usuario antes del bucle de envío de mensajes
         nuevo_usuario = unicodedata.normalize('NFKD',usuario).encode('ascii','ignore').decode('utf8','ignore').lower()
         print(f"{nuevo_usuario}: ")
 
-        while True:
-            mensaje = input()
-            mensaje = f"{usuario}: {mensaje}"  # Agregar el usuario al mensaje
-            self.sock.send(mensaje.encode())
-            if mensaje == "cerrar":
-                break
-
+        self.recibir_mensajes(nuevo_usuario)
         self.sock.shutdown(socket.SHUT_RDWR)
         self.sock.close()
 
 if __name__ == '__main__':
     direccion = 'localhost'
-    puerto = 5001
+    puerto = 5000
     cliente = Cliente(direccion, puerto)
     cliente.ejecutar()

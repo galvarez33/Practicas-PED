@@ -2,7 +2,7 @@
 
 setup:
 	@python3 -m venv entorno
-	@source entorno/bin/activate && pip install proctitle pytest
+	@source entorno/bin/activate && pip install proctitle pytest && . entorno/bin/activate
 
 server:
 	@source entorno/bin/activate && python3 servidor.py
